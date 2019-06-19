@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import AliyunOSSiOS
 
 typealias CallBack = ()->Void
 typealias CallBack1 = (String)->Void
@@ -88,7 +87,7 @@ public class HCHollyRecord: NSObject {
                 dprint("正在录音中")
                 return
             }
-            try session.setCategory(AVAudioSession.Category.playAndRecord)
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try session.setActive(true)
             
             let set = [

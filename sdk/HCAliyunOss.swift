@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AliyunOSSiOS
+//import AliyunOSSiOS
 
 let AccessKeyId = "FdVWP06c3sXkztIK"
 let AccessKeySecret = "xbtDJWp1INSjJGXd35W9UZB6Scmgtl"
@@ -29,57 +29,57 @@ public class HCAliyunOss: NSObject {
         return ins
     }()
     
-    var client: OSSClient!
+//    var client: OSSClient!
     
-    private override init() {
-        super.init()
-        
-        self.beginTime = self.beginTime - 7*24*60*60
-        
-        //        let cred = OSSStsTokenCredentialProvider(accessKeyId: AccessKeyId, secretKeyId: AccessKeySecret, securityToken: SecurityToken)
-        
-        let pro = OSSCustomSignerCredentialProvider { (contentToSign, err) -> String? in
-            //            print(err ?? "err or")
-            //            print(contentToSign)
-            //            let signature = OSSUtil.calBase64Sha1(withData: contentToSign, withSecret: AccessKeySecret)
-            //            return signature
-            let tToken = OSSFederationToken()
-            tToken.tAccessKey = AccessKeyId
-            tToken.tSecretKey = AccessKeySecret
-            
-            return OSSUtil.sign(contentToSign, with: tToken)
-        }
-        //        print(pro)
-        
-        let c = OSSClient(endpoint: endpoint, credentialProvider: pro!)
-        client = c
-    }
+//    private override init() {
+//        super.init()
+//
+//        self.beginTime = self.beginTime - 7*24*60*60
+//
+//        //        let cred = OSSStsTokenCredentialProvider(accessKeyId: AccessKeyId, secretKeyId: AccessKeySecret, securityToken: SecurityToken)
+//
+//        let pro = OSSCustomSignerCredentialProvider { (contentToSign, err) -> String? in
+//            //            print(err ?? "err or")
+//            //            print(contentToSign)
+//            //            let signature = OSSUtil.calBase64Sha1(withData: contentToSign, withSecret: AccessKeySecret)
+//            //            return signature
+//            let tToken = OSSFederationToken()
+//            tToken.tAccessKey = AccessKeyId
+//            tToken.tSecretKey = AccessKeySecret
+//
+//            return OSSUtil.sign(contentToSign, with: tToken)
+//        }
+//        //        print(pro)
+//
+//        let c = OSSClient(endpoint: endpoint, credentialProvider: pro!)
+//        client = c
+//    }
     
-    func putFile(fileName: String, fileData: Data, done: @escaping ((_ iss: Bool, _ url: String)->Void)){
-        let downUrl = downloadPrefix + fileName
-        let put = OSSPutObjectRequest()
-        put.bucketName = BucketName
-        put.objectKey = fileName
-        put.uploadingData = fileData
-        put.uploadProgress = { (sent: Int64, totleSent: Int64, expectedSent: Int64) -> Void in
-            print(sent, totleSent, expectedSent)
-        }
-        let putTask = client.putObject(put)
-        
-        putTask.continue ({ (ossTask: OSSTask) -> Any? in
-            if ossTask.error != nil {
-                print("upload failed")
-                print(ossTask.error)
-                done(false, "")
-            }
-            else{
-                print("upload success")
-                done(true, downUrl)
-            }
-            return nil
-        })
-        
-    }
+//    func putFile(fileName: String, fileData: Data, done: @escaping ((_ iss: Bool, _ url: String)->Void)){
+//        let downUrl = downloadPrefix + fileName
+//        let put = OSSPutObjectRequest()
+//        put.bucketName = BucketName
+//        put.objectKey = fileName
+//        put.uploadingData = fileData
+//        put.uploadProgress = { (sent: Int64, totleSent: Int64, expectedSent: Int64) -> Void in
+//            print(sent, totleSent, expectedSent)
+//        }
+//        let putTask = client.putObject(put)
+//        
+//        putTask.continue ({ (ossTask: OSSTask) -> Any? in
+//            if ossTask.error != nil {
+//                print("upload failed")
+//                print(ossTask.error)
+//                done(false, "")
+//            }
+//            else{
+//                print("upload success")
+//                done(true, downUrl)
+//            }
+//            return nil
+//        })
+//        
+//    }
     
     func uploadC5File(fileData: Data, done: @escaping ((_ iss: Bool, _ resu: String)->Void)){
         let body = fileData

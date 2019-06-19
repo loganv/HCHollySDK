@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		362AA81920732B2500FF2972 /* HCHollyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362AA81820732B2500FF2972 /* HCHollyLocation.swift */; };
-		3643508D2074CC3600945FFC /* AliyunOSSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3643508C2074CC3600945FFC /* AliyunOSSiOS.framework */; };
 		3643508F2074CEA200945FFC /* HCAliyunOss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3643508E2074CEA200945FFC /* HCAliyunOss.swift */; };
 		364350922074D17200945FFC /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 364350912074D17100945FFC /* libresolv.tbd */; };
 		364350942074D17900945FFC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364350932074D17900945FFC /* CoreTelephony.framework */; };
@@ -18,11 +17,11 @@
 		369FFE3B2073135E000FF6E3 /* OCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 369FFE392073135E000FF6E3 /* OCTest.m */; };
 		369FFE3D207313E6000FF6E3 /* HCHollyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369FFE3C207313E6000FF6E3 /* HCHollyWebView.swift */; };
 		369FFE3F207320AF000FF6E3 /* HCHollyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369FFE3E207320AF000FF6E3 /* HCHollyRecord.swift */; };
+		36E1E27922B9CD9A002A3C3A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E1E27822B9CD9A002A3C3A /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		362AA81820732B2500FF2972 /* HCHollyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHollyLocation.swift; sourceTree = "<group>"; };
-		3643508C2074CC3600945FFC /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
 		3643508E2074CEA200945FFC /* HCAliyunOss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAliyunOss.swift; sourceTree = "<group>"; };
 		364350912074D17100945FFC /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		364350932074D17900945FFC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -34,6 +33,7 @@
 		369FFE392073135E000FF6E3 /* OCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCTest.m; sourceTree = "<group>"; };
 		369FFE3C207313E6000FF6E3 /* HCHollyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHollyWebView.swift; sourceTree = "<group>"; };
 		369FFE3E207320AF000FF6E3 /* HCHollyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHollyRecord.swift; sourceTree = "<group>"; };
+		36E1E27822B9CD9A002A3C3A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,10 +41,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E1E27922B9CD9A002A3C3A /* WebKit.framework in Frameworks */,
 				364350962074D18200945FFC /* SystemConfiguration.framework in Frameworks */,
 				364350942074D17900945FFC /* CoreTelephony.framework in Frameworks */,
 				364350922074D17200945FFC /* libresolv.tbd in Frameworks */,
-				3643508D2074CC3600945FFC /* AliyunOSSiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +54,7 @@
 		364350902074D17100945FFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36E1E27822B9CD9A002A3C3A /* WebKit.framework */,
 				364350952074D18200945FFC /* SystemConfiguration.framework */,
 				364350932074D17900945FFC /* CoreTelephony.framework */,
 				364350912074D17100945FFC /* libresolv.tbd */,
@@ -64,7 +65,6 @@
 		369FFE21207312E3000FF6E3 = {
 			isa = PBXGroup;
 			children = (
-				3643508C2074CC3600945FFC /* AliyunOSSiOS.framework */,
 				369FFE2D207312E3000FF6E3 /* sdk */,
 				369FFE2C207312E3000FF6E3 /* Products */,
 				364350902074D17100945FFC /* Frameworks */,
@@ -315,10 +315,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -329,8 +326,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e armv7s armv7";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Debug;
 		};
@@ -346,10 +343,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -359,8 +353,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e armv7s armv7";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Release;
 		};
