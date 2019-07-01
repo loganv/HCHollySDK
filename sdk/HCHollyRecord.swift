@@ -87,7 +87,8 @@ public class HCHollyRecord: NSObject {
                 dprint("正在录音中")
                 return
             }
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+//            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setCategory(AVAudioSession.Category.playAndRecord)
             try session.setActive(true)
             
             let set = [
